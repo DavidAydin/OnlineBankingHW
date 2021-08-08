@@ -33,22 +33,22 @@ Feature: Navigating to specific accounts in Accounts Activity
       |Description|
       |Deposit    |
       |Withdrawal |
-  @wip
+
   Scenario: Savings Account redirect
     When the user clicks on "Savings" link on the Account Summary page
     Then the user should land in "Account Activity" page
     And the current dropdown account type should be "Savings"
-  @wip
+
   Scenario: Brokerage Account redirect
     When the user clicks on "Brokerage" link on the Account Summary page
     Then the user should land in "Account Activity" page
     And the current dropdown account type should be "Brokerage"
-  @wip
+
   Scenario:Credit Card account redirect
     When the user clicks on "Credit Card" link on the Account Summary page
     Then the user should land in "Account Activity" page
     And the current dropdown account type should be "Credit Card"
-  @wip
+
   Scenario: Loan account redirect
     When the user clicks on "Loan" link on the Account Summary page
     Then the user should land in "Account Activity" page
