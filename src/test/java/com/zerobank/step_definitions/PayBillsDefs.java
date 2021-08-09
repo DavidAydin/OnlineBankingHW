@@ -97,7 +97,7 @@ public class PayBillsDefs {
     public void theUserClicksOnTabOnThePayBillsPage(String tabName) {
         PayBillsPage payBillsPage = new PayBillsPage();
         payBillsPage.navigateToPayBillsTab(tabName);
-        new WebDriverWait(Driver.get(),5).until(ExpectedConditions.elementToBeClickable(payBillsPage.addNewPayee_name));
+        
     }
     
   

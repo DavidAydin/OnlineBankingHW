@@ -8,5 +8,19 @@ Feature: Purchase Foreign Currency
     And the user navigates to "Pay Bills" page
     And the user should land in "Pay Bills" page
     And the user clicks on "Purchase Foreign Currency" tab on the Pay Bills page
-    Scenario: Available Currencies
+
+  Scenario: Available Currencies
+    Then the following currencies should be available
+      | Australia (dollar)    |
+      | Canada (dollar)       |
+      | Switzerland (franc)   |
+      | China (yuan)          |
+      | Denmark (krone)       |
+      | Eurozone (euro)       |
+      | Great Britain (pound) |
+      | Japan (yen)           |
+      | Mexico (peso)         |
+      | Norway (krone)        |
+      | New Zealand (dollar)  |
+      | Singapore (dollar)    |
 

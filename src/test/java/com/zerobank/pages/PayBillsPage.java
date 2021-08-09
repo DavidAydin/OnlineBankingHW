@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class PayBillsPage extends BasePage{
     
     @FindBy(xpath = "//select[@id='sp_payee']")
@@ -46,6 +48,11 @@ public class PayBillsPage extends BasePage{
     @FindBy(xpath = "//div[@id='alert_content']")
     public WebElement addPayeeResultMessage;
     
+    @FindBy(xpath = "//select[@id='pc_currency']")
+    public WebElement availableCurrencies;
+    
+    @FindBy(xpath = "//input[@id='purchase_cash']")
+    public WebElement currencyPurchaseButton;
     
     /**
      * Methods
