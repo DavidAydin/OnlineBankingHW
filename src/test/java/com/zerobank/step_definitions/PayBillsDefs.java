@@ -2,10 +2,18 @@ package com.zerobank.step_definitions;
 
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Date;
+import java.util.Map;
 
 public class PayBillsDefs {
     @When("the user selects the payee as {string}")
@@ -55,8 +63,6 @@ public class PayBillsDefs {
     public void the_user_gets_the_following_payment_result_message(String expectedMessage) {
         String actualPaymentResultMessage = new PayBillsPage().paymentResultMessage.getText();
         System.out.println("actualPaymentResultMessage = " + actualPaymentResultMessage);
-        BrowserUtils.waitFor(5);
-    
         Assert.assertEquals("verify payment successful message",expectedMessage,actualPaymentResultMessage);
     }
     
@@ -86,5 +92,13 @@ public class PayBillsDefs {
         BrowserUtils.waitFor(7);
         Assert.assertEquals(verificationMessage,"", new PayBillsPage().dateBox.getAttribute("value"));
     }
-
+    
+    @And("the user clicks on {string} tab on the Pay Bills page")
+    public void theUserClicksOnTabOnThePayBillsPage(String tabName) {
+        PayBillsPage payBillsPage = new PayBillsPage();
+        payBillsPage.navigateToPayBillsTab(tabName);
+        new WebDriverWait(Driver.get(),5).until(ExpectedConditions.elementToBeClickable(payBillsPage.addNewPayee_name));
+    }
+    
+  
 }

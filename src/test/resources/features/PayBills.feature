@@ -11,8 +11,8 @@ Feature: Pay Bills
   Scenario: Successful pay operation
     And the user selects the payee as "Apple"
     And the user selects the account as "Checking"
-    And the user selects the transfer amount as "300.12"
-    And the user selects the transfer date as "22-9-2021"
+    And the user enters the transfer amount as "300.12"
+    And the user enters the transfer date as "22-9-2021"
     And the user enters the transfer description as "Test payment"
     And the user clicks the Pay button
     Then the user gets the following payment result message
