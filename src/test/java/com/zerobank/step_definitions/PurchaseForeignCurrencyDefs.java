@@ -26,8 +26,14 @@ public class PurchaseForeignCurrencyDefs {
         new WebDriverWait(Driver.get(),5).until(ExpectedConditions.elementToBeClickable(payBillsPage.currencyPurchaseButton));
         Select currencySelect = new Select(payBillsPage.availableCurrencies);
         List<String> actualCurrencies = BrowserUtils.getElementsText(currencySelect.getOptions());
-        actualCurrencies.remove(0);
-        Assert.assertEquals("verify available currencies",expectedCurrencies,actualCurrencies);
+        boolean isCurrenciesAvailable = true;
+        for (String expectedCurrency : expectedCurrencies) {
+            if(!actualCurrencies.contains(expectedCurrency)){
+                isCurrenciesAvailable = false;
+                break;
+            }
+        }
+        Assert.assertTrue(isCurrenciesAvailable);
     
     }
     

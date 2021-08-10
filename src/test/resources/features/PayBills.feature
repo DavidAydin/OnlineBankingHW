@@ -1,3 +1,4 @@
+@payBills
 Feature: Pay Bills
 
   Background:
