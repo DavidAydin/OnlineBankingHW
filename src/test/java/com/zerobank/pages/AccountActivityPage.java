@@ -65,10 +65,7 @@ public class AccountActivityPage extends BasePage{
     }
     
     public boolean isDateOrder_MostRecentFirst(List<String> transactionDates) {
-        // [15,19, 13,12,10, 9, 12,7, 6]
-        
         boolean result = true;
-    
         for (int i = 0; i <transactionDates.size()-1 ; i++) {
             Date date1 = getDatefromString(transactionDates.get(i));
             Date date2 = getDatefromString(transactionDates.get(i+1));
@@ -76,9 +73,7 @@ public class AccountActivityPage extends BasePage{
                 result = false;
                 break;
             }
-   
         }
-        
         return result;
     }
     
