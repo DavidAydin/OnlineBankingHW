@@ -23,4 +23,14 @@ Feature: Purchase Foreign Currency
       | Norway (krone)        |
       | New Zealand (dollar)  |
       | Singapore (dollar)    |
-
+@wip
+  Scenario: Error message for not selecting currency
+    When the user enters "100.02" as the amount to calculate currency
+    And the user clicks on the Calculate Costs button
+    Then currency calculator error message should be displayed
+@wip
+  Scenario: Error message for not entering value
+    When the user selects the currency as "Canada (dollar)"
+    And the user checks the selected currency radio button
+    And the user clicks on the Calculate Costs button
+    Then currency calculator error message should be displayed

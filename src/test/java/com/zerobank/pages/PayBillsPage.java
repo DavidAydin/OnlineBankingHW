@@ -54,6 +54,16 @@ public class PayBillsPage extends BasePage{
     @FindBy(xpath = "//input[@id='purchase_cash']")
     public WebElement currencyPurchaseButton;
     
+    @FindBy(xpath = "//input[@id='pc_amount']")
+    public WebElement currencyAmountBox;
+    
+    @FindBy(xpath = "//input[@id='pc_inDollars_false']")
+    public WebElement selectedCurrencyRB;
+    
+    @FindBy(xpath = "//input[@id='pc_calculate_costs']")
+    public WebElement calculateCostsButton;
+   
+    
     /**
      * Methods
      */

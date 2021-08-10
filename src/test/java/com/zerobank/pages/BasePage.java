@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public abstract class BasePage {
@@ -62,20 +64,28 @@ public abstract class BasePage {
     }
     
     public boolean isDateBetween(String checkDate, String startDate, String endDate){
-        boolean result;
-        int startCompare = getDatefromString(checkDate).compareTo(getDatefromString(startDate));
-        int endCompare = getDatefromString(checkDate).compareTo(getDatefromString(endDate));
-//        System.out.println("startCompare = " + startCompare);
-//        System.out.println("endCompare = " + endCompare);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate cdate = LocalDate.parse(checkDate,dtf);
+        LocalDate sdate = LocalDate.parse(startDate,dtf);
+        LocalDate eDate = LocalDate.parse(endDate,dtf);
         
-        if (startCompare>=0 && endCompare<=0){
-            result = true;
-        } else{
-            result = false;
-        }
+        boolean isAfterStart =  cdate.isEqual(sdate) || cdate.isAfter(sdate);
+        boolean isBeforeEnd = cdate.isEqual(eDate) || cdate.isBefore(eDate);
         
-        return result;
+        return (isAfterStart && isBeforeEnd);
     }
 }
 
 
+//
+//        int startCompare = getDatefromString(checkDate).compareTo(getDatefromString(startDate));
+//        int endCompare = getDatefromString(checkDate).compareTo(getDatefromString(endDate));
+//
+//
+//        if (startCompare>=0 && endCompare<=0){
+//            result = true;
+//        } else{
+//            result = false;
+//        }
+//
+//        return result;
