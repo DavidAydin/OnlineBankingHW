@@ -3,7 +3,7 @@ Feature: login
   Background:
     Given the user is on the login page
 
-
+  @smoke
   Scenario: User enters valid username and password
     When the user enters "username" and "password"
     Then the user should land in "Account Summary" page

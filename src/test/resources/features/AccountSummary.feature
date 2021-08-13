@@ -4,7 +4,7 @@ Feature: Account Summary
   Background:
     Given the user is on the login page
     When the user enters "username" and "password"
-
+  @smoke
   Scenario: Account Types
     Then the following account types should be available
       |Cash Accounts      |

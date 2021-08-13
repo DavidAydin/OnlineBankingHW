@@ -5,7 +5,7 @@ Feature: Navigating to specific accounts in Accounts Activity
     Given the user is on the login page
     And the user enters "username" and "password"
 
-
+  @smoke
   Scenario: Check Account Activity page title
     When the user navigates to "Account Activity" page
     Then the user should land in "Account Activity" page

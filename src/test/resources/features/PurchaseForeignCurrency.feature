@@ -9,6 +9,7 @@ Feature: Purchase Foreign Currency
     And the user should land in "Pay Bills" page
     And the user clicks on "Purchase Foreign Currency" tab on the Pay Bills page
 
+    @smoke
   Scenario: Available Currencies
     Then the following currencies should be available
       | Australia (dollar)    |
