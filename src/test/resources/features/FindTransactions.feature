@@ -8,7 +8,7 @@ Feature: Find Transactions in Account Activity
     And the user navigates to "Account Activity" page
     And the user should land in "Account Activity" page
     And the user clicks on Find Transaction tab on the Account Activity page
-  @smoke
+
   Scenario: Search date range
     When the user enters start date "2012-09-01" and end date "2012-09-06"
     And the user clicks on the Find button

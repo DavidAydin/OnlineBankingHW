@@ -9,7 +9,7 @@ Feature: Pay Bills
   Scenario: Check Pay Bills page title
     Then the user should land in "Pay Bills" page
 
-  @smoke
+
   Scenario: Successful pay operation
     And the user selects the payee as "Apple"
     And the user selects the account as "Checking"
