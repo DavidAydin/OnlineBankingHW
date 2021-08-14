@@ -42,8 +42,9 @@ public class FindTransactionDefs {
     public void the_user_clicks_on_the_Find_button() {
         AccountActivityPage accountActivityPage = new AccountActivityPage();
         accountActivityPage.findButton.click();
-        new WebDriverWait(Driver.get(),5).until(ExpectedConditions.visibilityOfAllElements(accountActivityPage.searchResultDates));
-        
+        if(accountActivityPage.searchResultDates.size()>0) {
+            new WebDriverWait(Driver.get(), 5).until(ExpectedConditions.visibilityOfAllElements(accountActivityPage.searchResultDates));
+        }
         
     }
     
@@ -88,6 +89,7 @@ public class FindTransactionDefs {
         accountActivityPage.descriptionBox.sendKeys(""+Keys.SHIFT + Keys.HOME +Keys.BACK_SPACE);
         accountActivityPage.descriptionBox.sendKeys(description);
         
+        
     }
     
     @Then("results table should only show transactions with description {string}")
@@ -102,7 +104,7 @@ public class FindTransactionDefs {
                 break;
             }
         }
-        String verificationMessage ="verify all search results contain " + expectedDescription;
+        String verificationMessage ="verify search results does not contain " + expectedDescription;
         Assert.assertTrue(verificationMessage,verification);
     }
     
@@ -124,9 +126,9 @@ public class FindTransactionDefs {
     
     @Then("results table should show at least one result under {string}")
     public void results_table_should_show_at_least_one_result_under(String accountType) {
-       AccountActivityPage accountActivityPage = new AccountActivityPage();
-       boolean check = accountActivityPage.isThereAtLeastOneFull(accountType);
-           Assert.assertTrue("verify at least one box is full",check);
+        AccountActivityPage accountActivityPage = new AccountActivityPage();
+        boolean check = accountActivityPage.isThereAtLeastOneFull(accountType);
+        Assert.assertTrue("verify at least one box is full",check);
         
         
     }
@@ -144,8 +146,8 @@ public class FindTransactionDefs {
     @Then("results table should show no result under {string}")
     public void results_table_should_show_no_result_under(String accountType) {
         AccountActivityPage accountActivityPage = new AccountActivityPage();
-       boolean check = accountActivityPage.isAllBoxesAreEmpty(accountType);
-            Assert.assertTrue("verify all boxes are empty",check);
+        boolean check = accountActivityPage.isAllBoxesAreEmpty(accountType);
+        Assert.assertTrue("verify all boxes are empty",check);
         
     }
 }

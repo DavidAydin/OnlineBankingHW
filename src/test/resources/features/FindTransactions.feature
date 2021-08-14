@@ -48,7 +48,7 @@ Feature: Find Transactions in Account Activity
     Then results table should only show transactions with description "ONLINE"
     When the user enters "online" in description
     And the user clicks on the Find button
-    Then results table should only show transactions with description "ONLINE"
+    Then results table should not show transactions with description "ONLINE"
 
 
   Scenario: Transaction Type: Empty
