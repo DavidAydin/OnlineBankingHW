@@ -42,9 +42,9 @@ Feature: Pay Bills
       |Please fill out this field.|
 
 
-  Scenario: The amount box negative test with invalid characters
-    And the user enters the transfer amount as "Abq%"
-    Then the amount box should be empty
+#  Scenario: The amount box negative test with invalid characters
+#    And the user enters the transfer amount as "Abq%"
+#    Then the amount box should be empty
 
 
   Scenario: The date box negative test with invalid characters
